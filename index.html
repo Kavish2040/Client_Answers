@@ -112,7 +112,8 @@
       <li><a href="#review"><span>5</span>Human review</a></li>
       <li><a href="#deliverable"><span>6</span>What you get</a></li>
       <li><a href="#fit"><span>7</span>How this fits your full scope of work</a></li>
-      <li><a href="#next"><span>8</span>Next step</a></li>
+      <li><a href="#security"><span>8</span>Platform security</a></li>
+      <li><a href="#next"><span>9</span>Next step</a></li>
     </ol>
   </div>
 </nav>
@@ -297,7 +298,7 @@
           <tr><td>Attachment reading (section 9)</td><td>Later</td><td>Phase 3 or later</td></tr>
           <tr><td>Existing customer lookup (section 10)</td><td>Later</td><td>Depends on Corebridge access confirmed in the pilot</td></tr>
           <tr><td>Admin interface, audit trail, reporting (sections 18, 19, 22)</td><td>Later</td><td>Built once the workflow is proven</td></tr>
-          <tr><td>Security documentation and reliability plan (sections 20 and 21)</td><td>Later</td><td>Provided with the full proposal</td></tr>
+          <tr><td>Security documentation and reliability plan (sections 20 and 21)</td><td>Partly</td><td>Summary in section 8 below. Full documentation with the full proposal</td></tr>
           <tr><td>Reusable agent platform (section 28)</td><td>Later</td><td>The pilot is built so it can grow into this</td></tr>
         </tbody>
       </table>
@@ -305,10 +306,81 @@
     <p style="margin-top:16px">This matches the phased approach in section 23 of your document. The pilot sits inside your Phase 2, with business cards as the first product instead of the wider list.</p>
   </section>
 
+  <section id="security">
+    <h2><span>8</span>Platform security</h2>
+    <p>Section 20 of your scope of work asks how customer data, credentials, and email content are protected. This is a summary of how the AltOps platform handles that today. Full documentation comes with the full proposal.</p>
+    <p>AltOps owns the platform and carries the security responsibility for it: the controls, the compliance program, and the response if something goes wrong.</p>
+
+    <h3>Your data stays separate from every other client</h3>
+    <ul>
+      <li>Every company gets its own isolated environment, and every individual user inside that company gets their own isolated execution pod with its own private storage.</li>
+      <li>Network rules block traffic between clients by default. One client's pods cannot reach another client's pods.</li>
+      <li>There is no shared memory, knowledge, or prompt content across clients. When a run starts, the agent is shown only your company's rules, data, and tools.</li>
+      <li>Every database row is stamped with the company and user it belongs to, and the database enforces this separation itself, not just the application.</li>
+      <li>Fully private deployment is available: dedicated infrastructure, or on-premise inside your own environment.</li>
+    </ul>
+
+    <h3>Passwords and logins</h3>
+    <ul>
+      <li>AlphaGraphics staff log into Corebridge and email themselves, through the secure AltOps Agent Computer. AltOps never needs your passwords.</li>
+      <li>Logged-in sessions live only inside that one person's pod, on an encrypted volume. The platform database holds no plaintext credentials.</li>
+      <li>Sessions are per person. An agent working for one user cannot inherit another user's access.</li>
+      <li>Where a system supports it, we use OAuth, so access can be revoked at any time without changing a password.</li>
+    </ul>
+
+    <h3>Data protection</h3>
+    <ul>
+      <li>All traffic is encrypted in transit. All stored data is encrypted at rest.</li>
+      <li>All data is stored on US infrastructure.</li>
+      <li>Automated backups with point-in-time recovery.</li>
+      <li>Client data is never used to train any AI model, by AltOps or by our model providers. We operate under commercial API terms where submitted data is not used for training.</li>
+      <li>Client data is never used to improve another client's agents.</li>
+    </ul>
+
+    <h3>Audit trail</h3>
+    <p>Section 19 of your scope of work asks for a complete history of AI activity. The platform records this for every run.</p>
+    <ul>
+      <li>Every step in sequence, with a screenshot of every screen the agent touched.</li>
+      <li>Every tool call with its inputs and outputs.</li>
+      <li>The exact model version and the exact instructions and business rules in force for that run.</li>
+      <li>Every human intervention, correction, and approval, with who and when.</li>
+      <li>Run records are frozen at execution time and cannot be rewritten afterwards.</li>
+    </ul>
+
+    <h3>Human control</h3>
+    <ul>
+      <li>Any automation can be paused instantly from the admin console. Work then goes back to the person who did it before.</li>
+      <li>A run cannot report success if it skipped a record. A silent partial success is treated as a failure, not a pass.</li>
+      <li>Anything involving a number or a decision with money attached is handled by deterministic code, not by the AI model.</li>
+    </ul>
+
+    <div class="table-title">Table 3. Security controls and their status</div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Control</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Tenant isolation (separate environment per company, separate pod per user)</td><td>In place</td><td>Enforced at infrastructure, application, and database layers</td></tr>
+          <tr><td>Encryption in transit and at rest</td><td>In place</td><td>TLS everywhere, encrypted database and storage volumes</td></tr>
+          <tr><td>No plaintext credentials</td><td>In place</td><td>Secret store with pointers only in the database</td></tr>
+          <tr><td>Role-based access, admin-provisioned users</td><td>In place</td><td>No self-service signup</td></tr>
+          <tr><td>Full audit trail per run</td><td>In place</td><td>Steps, screenshots, tool calls, model version, interventions</td></tr>
+          <tr><td>Backups and disaster recovery</td><td>In place</td><td>Automated backups, scripted redeploy</td></tr>
+          <tr><td>US data residency</td><td>In place</td><td>Contractual commitment available</td></tr>
+          <tr><td>No training on client data</td><td>In place</td><td>Commercial API terms with model providers</td></tr>
+          <tr><td>Multi-factor authentication on admin accounts</td><td>In progress</td><td>Being enabled with an enforced policy</td></tr>
+          <tr><td>SOC 2</td><td>In progress</td><td>Underway with Thoropass, a compliance and audit firm. Type I first, then Type II</td></tr>
+          <tr><td>Third-party penetration test</td><td>In progress</td><td>Scheduled within the SOC 2 program. Summary will be shareable</td></tr>
+          <tr><td>Automated vulnerability scanning</td><td>In progress</td><td>Being added to the build pipeline</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px">For the pilot itself, the exposure is small: the agent works on test and historical email threads and a Corebridge test environment, not live customer traffic. We are happy to complete your standard vendor security questionnaire, and we welcome your own team testing the platform before any wider rollout.</p>
+  </section>
+
   <section id="next">
-    <h2><span>8</span>Next step</h2>
+    <h2><span>9</span>Next step</h2>
     <p>AltOps will start building once three things are in place.</p>
-    <div class="table-title">Table 3. What needs to happen to start</div>
+    <div class="table-title">Table 4. What needs to happen to start</div>
     <div class="tbl">
       <table>
         <thead><tr><th>Item</th><th>Who</th><th>Status</th></tr></thead>
