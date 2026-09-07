@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AlphaGraphics AI Estimate Agent — Pilot Scope | AltOps</title>
+<link rel="icon" href="assets/altops-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f172a; --ink-2:#334155; --muted:#64748b; --line:#e2e8f0; --bg:#ffffff; --panel:#f8fafc;
+    --brand:#e5484d; --brand-2:#e8893a; --brand-3:#d9a441; --navy:#0b2545;
+    --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px}
+
+  header.top{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:5}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .wordmark{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .wordmark img{height:30px;width:30px;object-fit:contain}
+  .wordmark span{font-size:1.15rem;letter-spacing:-0.02em}
+  .wordmark b{font-weight:800}
+  .wordmark em{font-style:normal;font-weight:500}
+  .meta{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+
+  .hero{padding:72px 0 48px;border-bottom:1px solid var(--line)}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+  .kicker:before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand-3))}
+  h1{font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4.6vw,3.15rem);line-height:1.12;letter-spacing:-0.015em;margin:18px 0 16px;max-width:820px}
+  .lede{font-family:var(--serif);font-size:1.25rem;line-height:1.55;color:var(--ink-2);max-width:760px;margin:0 0 30px}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .fact{padding:18px 20px;border-right:1px solid var(--line);background:var(--panel)}
+  .fact:last-child{border-right:0}
+  .fact .l{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:600}
+  .fact .v{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-top:4px;color:var(--navy)}
+
+  .toc{padding:26px 0;border-bottom:1px solid var(--line);background:var(--panel)}
+  .toc ol{display:flex;flex-wrap:wrap;gap:8px 28px;list-style:none;margin:0;padding:0;font-size:.9rem}
+  .toc a{text-decoration:none;color:var(--ink-2);font-weight:500}
+  .toc a:hover{color:var(--brand)}
+  .toc li span{color:var(--muted);margin-right:6px;font-variant-numeric:tabular-nums}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:baseline;margin-bottom:22px}
+  .num{font-family:var(--serif);font-size:2rem;color:var(--brand);font-weight:600;line-height:1}
+  h2{font-family:var(--serif);font-size:1.75rem;font-weight:700;letter-spacing:-0.01em;margin:0;line-height:1.2}
+  .body{margin-left:84px}
+  h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:700;margin:30px 0 10px}
+  p{margin:0 0 14px;max-width:720px;color:var(--ink-2)}
+  p strong{color:var(--ink)}
+  .callout{border-left:3px solid var(--brand);background:var(--panel);padding:16px 20px;border-radius:0 6px 6px 0;margin:18px 0;max-width:760px}
+  .callout p{margin:0;color:var(--ink)}
+  .callout .t{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--brand);font-weight:700;margin-bottom:6px}
+
+  ul.checks{list-style:none;padding:0;margin:0;max-width:760px}
+  ul.checks li{position:relative;padding:11px 0 11px 30px;border-bottom:1px solid var(--line);color:var(--ink-2)}
+  ul.checks li:last-child{border-bottom:0}
+  ul.checks li:before{content:"";position:absolute;left:0;top:19px;width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-3))}
+  ul.checks li:after{content:"";position:absolute;left:4.5px;top:22px;width:4px;height:7px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+
+  .exhibit{border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:22px 0;background:#fff}
+  .exhibit .cap{padding:12px 18px;border-bottom:1px solid var(--line);font-size:.78rem;background:var(--panel)}
+  .exhibit .cap b{color:var(--navy);text-transform:uppercase;letter-spacing:.1em;margin-right:8px}
+  .exhibit .in{padding:20px 18px}
+  table{width:100%;border-collapse:collapse;font-size:.93rem}
+  th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;padding:0 12px 10px 0;border-bottom:2px solid var(--ink)}
+  td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+  td:first-child{font-weight:600;color:var(--ink);width:34%}
+  tr:last-child td{border-bottom:0}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;background:#fdecec;color:var(--brand)}
+  .tag.navy{background:#e8eef7;color:var(--navy)}
+  .tag.gray{background:#eef2f7;color:var(--muted)}
+
+  .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;counter-reset:step}
+  .step{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 10px 12px;text-align:center;font-size:.8rem;font-weight:600;color:var(--ink);line-height:1.3}
+  .step:before{counter-increment:step;content:counter(step);display:block;font-family:var(--serif);font-size:1.1rem;color:var(--brand);margin-bottom:6px}
+  .step.human{border-color:var(--navy);background:#e8eef7}
+  .step.human:before{color:var(--navy)}
+  .legend{display:flex;gap:18px;margin-top:14px;font-size:.78rem;color:var(--muted)}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:760px}
+  .card{border:1px solid var(--line);border-radius:6px;padding:20px 22px;background:#fff}
+  .card h4{margin:0 0 10px;font-family:var(--serif);font-size:1.1rem;color:var(--navy)}
+  .card ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.93rem}
+  .card li{margin-bottom:6px}
+
+  footer{padding:38px 0 60px;color:var(--muted);font-size:.85rem}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+  @media print{header.top{position:static}.toc{display:none}section{page-break-inside:avoid}}
+  @media (max-width:760px){
+    .facts{grid-template-columns:1fr 1fr}.fact:nth-child(2){border-right:0}.fact:nth-child(1),.fact:nth-child(2){border-bottom:1px solid var(--line)}
+    .sec-head{grid-template-columns:44px 1fr;gap:12px}.body{margin-left:0}
+    .flow{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}
+    td:first-child{width:40%}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="wordmark" href="#">
+      <img src="assets/altops-logo.png" alt="AltOps logo">
+      <span><b>Alt</b><em>Ops</em></span>
+    </a>
+    <div class="meta">Client Proposal · Pilot Scope</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">AlphaGraphics × AltOps</div>
+    <h1>AI Estimate Agent: a narrow, low-risk pilot to prove that AI can prepare draft estimates for human review</h1>
+    <p class="lede">The pilot targets one product category, business cards, and one workflow: turn an inbound customer request into a complete, Corebridge-ready draft estimate. Pricing, judgement calls, and final approval stay with AlphaGraphics staff.</p>
+    <div class="facts">
+      <div class="fact"><div class="l">Investment</div><div class="v">$1,000</div></div>
+      <div class="fact"><div class="l">Scope</div><div class="v">Business cards</div></div>
+      <div class="fact"><div class="l">Data source</div><div class="v">Test threads</div></div>
+      <div class="fact"><div class="l">Decision rights</div><div class="v">Human review</div></div>
+    </div>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="wrap">
+    <ol>
+      <li><span>01</span><a href="#objective">Objective</a></li>
+      <li><span>02</span><a href="#scope">Pilot scope</a></li>
+      <li><span>03</span><a href="#testing">Testing approach</a></li>
+      <li><span>04</span><a href="#access">Access required</a></li>
+      <li><span>05</span><a href="#review">Human review</a></li>
+      <li><span>06</span><a href="#deliverable">Deliverable</a></li>
+      <li><span>07</span><a href="#next">Next step</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="objective">
+    <div class="sec-head"><div class="num">01</div><h2>Objective</h2></div>
+    <div class="body">
+      <p>The goal of this pilot is to prove that an AI agent can assist with the initial estimating workflow by handling routine customer inquiries, gathering missing information, and preparing a draft estimate for human review.</p>
+      <p>This pilot is intentionally narrow. It is designed to validate the concept before expanding into additional products, inboxes, locations, or workflows.</p>
+      <div class="callout">
+        <div class="t">The question the pilot answers</div>
+        <p>Can an AI agent reliably take a business-card request from first email to a Corebridge draft, without asking customers for information they have already given and without making decisions that belong to AlphaGraphics staff?</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="scope">
+    <div class="sec-head"><div class="num">02</div><h2>Pilot scope</h2></div>
+    <div class="body">
+      <p>For the initial pilot, AltOps will focus on <strong>one standardized product category, beginning with business cards</strong>. The agent will be designed to do the following.</p>
+
+      <h3>Understand the request</h3>
+      <ul class="checks">
+        <li>Review test customer estimate requests and relevant email thread history.</li>
+        <li>Identify the product being requested and the information already provided.</li>
+        <li>Determine what additional information is required.</li>
+      </ul>
+
+      <h3>Complete the picture</h3>
+      <ul class="checks">
+        <li>Ask concise and appropriate follow-up questions.</li>
+        <li>Ask relevant outcome-based questions where useful.</li>
+        <li>Maintain context across multiple customer responses.</li>
+        <li>Avoid asking customers for information they have already provided.</li>
+        <li>Recognize requests that are too complex or uncertain and flag them for human review.</li>
+      </ul>
+
+      <h3>Prepare the draft</h3>
+      <ul class="checks">
+        <li>Access Corebridge to test the process of creating a draft estimate.</li>
+        <li>Where practical, search for a comparable historical estimate or order and use it as the starting point for the new estimate.</li>
+        <li>Leave pricing decisions, subjective production decisions, discounts, and final approval to an AlphaGraphics employee.</li>
+      </ul>
+
+      <div class="exhibit">
+        <div class="cap"><b>Exhibit 1</b> Division of responsibility during the pilot</div>
+        <div class="in">
+          <table>
+            <thead><tr><th>Activity</th><th>Owner</th><th>Rationale</th></tr></thead>
+            <tbody>
+              <tr><td>Read request and thread history</td><td><span class="tag">AI agent</span></td><td>Routine, high-volume, well suited to automation</td></tr>
+              <tr><td>Identify gaps and ask follow-ups</td><td><span class="tag">AI agent</span></td><td>Structured questions against a known spec set</td></tr>
+              <tr><td>Find a comparable past estimate</td><td><span class="tag">AI agent</span></td><td>Reduces rework and anchors the draft in precedent</td></tr>
+              <tr><td>Create draft in Corebridge</td><td><span class="tag">AI agent</span></td><td>Draft status only, never customer-facing</td></tr>
+              <tr><td>Flag complex or uncertain requests</td><td><span class="tag">AI agent</span> → <span class="tag navy">AlphaGraphics</span></td><td>Escalation is a designed outcome, not a failure</td></tr>
+              <tr><td>Pricing, discounts, production judgement</td><td><span class="tag navy">AlphaGraphics</span></td><td>Commercial and quality decisions stay with staff</td></tr>
+              <tr><td>Final approval and customer delivery</td><td><span class="tag navy">AlphaGraphics</span></td><td>Every estimate is reviewed before it leaves</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testing">
+    <div class="sec-head"><div class="num">03</div><h2>Testing approach</h2></div>
+    <div class="body">
+      <p>The pilot will initially use <strong>test or historical customer inquiries rather than a live customer inbox</strong>.</p>
+      <p>AlphaGraphics will provide representative email threads relating to business card estimate requests. AltOps will use these scenarios to configure, test, and refine the agent.</p>
+      <p>Once the workflow is demonstrated successfully, live email integration and additional product categories can be considered as a separate next phase.</p>
+      <div class="two">
+        <div class="card">
+          <h4>In scope for this pilot</h4>
+          <ul>
+            <li>Business card estimate requests</li>
+            <li>Historical or test email threads</li>
+            <li>Corebridge test or sandbox environment</li>
+            <li>Draft estimates for human review</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Deferred to a later phase</h4>
+          <ul>
+            <li>Live customer inbox integration</li>
+            <li>Additional product categories</li>
+            <li>Additional locations</li>
+            <li>Broader estimating automation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="access">
+    <div class="sec-head"><div class="num">04</div><h2>Access required</h2></div>
+    <div class="body">
+      <p>To complete the pilot, AlphaGraphics will provide the following.</p>
+      <ul class="checks">
+        <li>Access to a Corebridge test, sandbox, or approved MIS environment.</li>
+        <li>Representative historical customer estimate email threads.</li>
+        <li>Basic guidance regarding standard business-card specifications and estimating practices.</li>
+        <li>Assistance from the appropriate MIS administrator where required.</li>
+      </ul>
+      <div class="callout">
+        <div class="t">Credentials stay with AlphaGraphics</div>
+        <p>AlphaGraphics does <strong>not need to provide passwords directly to AltOps</strong>. Where possible, AlphaGraphics personnel log into Corebridge and other required platforms directly through the secure AltOps Agent Computer. The authenticated session is then used by the agent for testing.</p>
+      </div>
+      <p>If additional platforms become necessary during the agreed pilot workflow, the required access will be discussed before they are connected.</p>
+    </div>
+  </section>
+
+  <section id="review">
+    <div class="sec-head"><div class="num">05</div><h2>Human review</h2></div>
+    <div class="body">
+      <p>The pilot agent will operate as an <strong>estimating assistant</strong>, not an autonomous estimator.</p>
+      <p>Any estimate created by the agent will remain in draft or review status and will require review by an AlphaGraphics employee before being provided to a customer.</p>
+    </div>
+  </section>
+
+  <section id="deliverable">
+    <div class="sec-head"><div class="num">06</div><h2>Pilot deliverable</h2></div>
+    <div class="body">
+      <p>The deliverable for the <strong>$1,000 pilot</strong> is a working proof of concept demonstrating that the AI agent can carry a request end to end through the workflow below.</p>
+      <div class="exhibit">
+        <div class="cap"><b>Exhibit 2</b> End-to-end pilot workflow</div>
+        <div class="in">
+          <div class="flow">
+            <div class="step">Customer request</div>
+            <div class="step">Understand request</div>
+            <div class="step">Identify missing information</div>
+            <div class="step">Follow up</div>
+            <div class="step">Maintain context</div>
+            <div class="step">Prepare draft estimate in Corebridge</div>
+            <div class="step human">Human review</div>
+          </div>
+          <div class="legend">
+            <span><i style="background:#f8fafc;border:1px solid #e2e8f0"></i>Handled by the AI agent</span>
+            <span><i style="background:#e8eef7;border:1px solid #0b2545"></i>Handled by AlphaGraphics staff</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="sec-head"><div class="num">07</div><h2>Next step</h2></div>
+    <div class="body">
+      <p>AltOps will begin configuration once three conditions are met.</p>
+      <div class="exhibit">
+        <div class="cap"><b>Exhibit 3</b> Conditions to start</div>
+        <div class="in">
+          <table>
+            <thead><tr><th>Condition</th><th>Owner</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Pilot scope approved</td><td>AlphaGraphics</td><td><span class="tag gray">Pending</span></td></tr>
+              <tr><td>Representative email examples provided</td><td>AlphaGraphics</td><td><span class="tag gray">Pending</span></td></tr>
+              <tr><td>Corebridge testing access arranged</td><td>AlphaGraphics with MIS admin</td><td><span class="tag gray">Pending</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p>Following successful testing, both parties can evaluate expansion into additional products, live email processing, additional locations, and broader estimating automation.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#">
+      <img src="assets/altops-logo.png" alt="AltOps logo">
+      <span><b>Alt</b><em>Ops</em></span>
+    </a>
+    <div>AlphaGraphics AI Estimate Agent · Pilot Scope · Prepared by AltOps</div>
+  </div>
+</footer>
+
+</body>
+</html>
