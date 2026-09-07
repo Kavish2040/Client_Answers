@@ -59,12 +59,14 @@
   td:first-child{color:var(--ink);font-weight:500;width:36%}
   .tbl{overflow-x:auto;margin-bottom:8px}
 
-  .flow{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin:12px 0 10px;counter-reset:step}
-  .step{border:1px solid var(--line);border-radius:4px;padding:12px 8px;text-align:center;font-size:.82rem;font-weight:500;color:var(--ink);background:var(--bg)}
-  .step:before{counter-increment:step;content:counter(step);display:block;color:var(--muted);font-size:.8rem;margin-bottom:4px;font-weight:400}
-  .step.human{background:var(--accent);border-color:var(--accent);color:#fff}
-  .step.human:before{color:rgba(255,255,255,.75)}
-  .legend{font-size:.82rem;color:var(--muted)}
+  .diagram{overflow-x:auto;margin:12px 0 4px}
+  .diagram svg{width:100%;min-width:760px;height:auto;display:block;font-family:inherit}
+  .diagram .box rect{fill:#fff;stroke:#999;stroke-width:1}
+  .diagram .box text{font-size:13px;font-weight:500;fill:var(--ink);text-anchor:middle}
+  .diagram .box.human rect{fill:var(--accent);stroke:var(--accent)}
+  .diagram .box.human text{fill:#fff}
+  .diagram .ln{stroke:#555;stroke-width:1.4}
+  .diagram .lbl{font-size:11.5px;fill:var(--muted)}
 
   .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;max-width:720px}
   .box{border:1px solid var(--line);border-radius:4px;padding:18px 20px}
@@ -75,7 +77,6 @@
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid var(--line);padding-top:24px}
 
   @media (max-width:700px){
-    .flow{grid-template-columns:repeat(2,1fr)}
     .two{grid-template-columns:1fr}
     h1{font-size:1.7rem}
   }
@@ -225,16 +226,52 @@
     <h2><span>6</span>What you get</h2>
     <p>The deliverable for the <strong>$1,000 pilot</strong> is a working proof of concept showing that the AI agent can take a request all the way through the workflow below.</p>
     <div class="table-title">Figure 1. The pilot workflow</div>
-    <div class="flow">
-      <div class="step">Customer request</div>
-      <div class="step">Understand request</div>
-      <div class="step">Identify missing information</div>
-      <div class="step">Follow up</div>
-      <div class="step">Maintain context</div>
-      <div class="step">Prepare draft estimate in Corebridge</div>
-      <div class="step human">Human review</div>
+    <div class="diagram">
+      <svg viewBox="0 0 1100 320" role="img" aria-label="Pilot workflow diagram">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="#555"/>
+          </marker>
+        </defs>
+
+        <!-- main row -->
+        <g class="box"><rect x="20" y="40" width="150" height="64" rx="4"/><text x="95" y="66"><tspan x="95">Customer</tspan><tspan x="95" dy="17">request</tspan></text></g>
+        <g class="box"><rect x="200" y="40" width="150" height="64" rx="4"/><text x="275" y="66"><tspan x="275">Understand</tspan><tspan x="275" dy="17">request</tspan></text></g>
+        <g class="box"><rect x="380" y="40" width="150" height="64" rx="4"/><text x="455" y="66"><tspan x="455">Identify missing</tspan><tspan x="455" dy="17">information</tspan></text></g>
+        <g class="box"><rect x="560" y="40" width="150" height="64" rx="4"/><text x="635" y="58"><tspan x="635">Prepare draft</tspan><tspan x="635" dy="17">estimate in</tspan><tspan x="635" dy="17">Corebridge</tspan></text></g>
+        <g class="box human"><rect x="740" y="40" width="150" height="64" rx="4"/><text x="815" y="77"><tspan x="815">Human review</tspan></text></g>
+        <g class="box"><rect x="920" y="40" width="150" height="64" rx="4"/><text x="995" y="66"><tspan x="995">Estimate sent</tspan><tspan x="995" dy="17">to customer</tspan></text></g>
+
+        <!-- main arrows -->
+        <line x1="170" y1="72" x2="198" y2="72" class="ln" marker-end="url(#arrow)"/>
+        <line x1="350" y1="72" x2="378" y2="72" class="ln" marker-end="url(#arrow)"/>
+        <line x1="530" y1="72" x2="558" y2="72" class="ln" marker-end="url(#arrow)"/>
+        <text x="544" y="30" class="lbl" text-anchor="middle">Nothing missing</text>
+        <line x1="710" y1="72" x2="738" y2="72" class="ln" marker-end="url(#arrow)"/>
+        <line x1="890" y1="72" x2="918" y2="72" class="ln" marker-end="url(#arrow)"/>
+        <text x="904" y="30" class="lbl" text-anchor="middle">Approved</text>
+
+        <!-- follow-up loop -->
+        <g class="box"><rect x="380" y="210" width="150" height="64" rx="4"/><text x="455" y="236"><tspan x="455">Follow up with</tspan><tspan x="455" dy="17">customer</tspan></text></g>
+        <g class="box"><rect x="560" y="210" width="150" height="64" rx="4"/><text x="635" y="236"><tspan x="635">Customer</tspan><tspan x="635" dy="17">replies</tspan></text></g>
+        <line x1="430" y1="104" x2="430" y2="208" class="ln" marker-end="url(#arrow)"/>
+        <text x="422" y="160" class="lbl" text-anchor="end">Information missing</text>
+        <line x1="530" y1="242" x2="558" y2="242" class="ln" marker-end="url(#arrow)"/>
+        <polyline points="635,210 635,170 480,170 480,106" class="ln" fill="none" marker-end="url(#arrow)"/>
+        <text x="560" y="162" class="lbl" text-anchor="middle">Repeat until complete</text>
+
+        <!-- escalation -->
+        <g class="box human"><rect x="200" y="210" width="150" height="64" rx="4"/><text x="275" y="236"><tspan x="275">Flag for</tspan><tspan x="275" dy="17">AlphaGraphics staff</tspan></text></g>
+        <line x1="275" y1="104" x2="275" y2="208" class="ln" marker-end="url(#arrow)"/>
+        <text x="267" y="160" class="lbl" text-anchor="end">Too complex or unclear</text>
+
+        <!-- legend -->
+        <rect x="20" y="296" width="14" height="14" rx="2" fill="#fff" stroke="#999"/>
+        <text x="42" y="308" class="lbl">Handled by the AI agent</text>
+        <rect x="200" y="296" width="14" height="14" rx="2" fill="#1f3a5f"/>
+        <text x="222" y="308" class="lbl">Handled by AlphaGraphics staff</text>
+      </svg>
     </div>
-    <div class="legend">Steps 1 to 6 are handled by the AI agent. Step 7 is handled by AlphaGraphics staff.</div>
   </section>
 
   <section id="fit">
