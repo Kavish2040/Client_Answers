@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e5484d'/%3E%3Cstop offset='.55' stop-color='%23e8893a'/%3E%3Cstop offset='1' stop-color='%23d9a441'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='120' height='120' rx='24' fill='%23130f0f'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' transform='translate(60 60) scale(0.72) translate(-60 -60)' d='M110 60 L85 103.3 L35 103.3 L10 60 L35 16.7 L85 16.7 Z M60 34 L83 85 L37 85 Z' fill='url(%23g)'/%3E%3C/svg%3E">
+<title>Revised Answers and Proposal | Promo Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap">
+<style>
+  :root {
+    --paper:      #F3F5F6;
+    --surface:    #FBFCFC;
+    --tint:       #E9EDEF;
+    --ink:        #16242E;
+    --ink-2:      #3C4C56;
+    --muted:      #6B7A83;
+    --rule:       #DBE1E4;
+    --rule-mid:   #C0C9CE;
+    --rule-dark:  #16242E;
+    --accent:     #A8492A;
+    --live:       #16624A;
+    --prog:       #8A5D14;
+    --road:       #5B6B76;
+
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans:  "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --measure: 72ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:     #0E171C;
+      --surface:   #162127;
+      --tint:      #1B272E;
+      --ink:       #E9EEF0;
+      --ink-2:     #C3CDD3;
+      --muted:     #8E9BA3;
+      --rule:      #26333A;
+      --rule-mid:  #3A4A53;
+      --rule-dark: #E9EEF0;
+      --accent:    #E0895F;
+      --live:      #4FBE93;
+      --prog:      #D6A24E;
+      --road:      #8B98A1;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:     #0E171C;
+    --surface:   #162127;
+    --tint:      #1B272E;
+    --ink:       #E9EEF0;
+    --ink-2:     #C3CDD3;
+    --muted:     #8E9BA3;
+    --rule:      #26333A;
+    --rule-mid:  #3A4A53;
+    --rule-dark: #E9EEF0;
+    --accent:    #E0895F;
+    --live:      #4FBE93;
+    --prog:      #D6A24E;
+    --road:      #8B98A1;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .shell { max-width: 1180px; margin: 0 auto; padding: 0 34px 110px; }
+  @media (max-width: 640px) { .shell { padding: 0 20px 80px; } }
+
+  /* ---------- masthead ---------- */
+  .masthead { padding: 46px 0 0; }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 22px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--rule-dark);
+  }
+  .brand-mark { width: 23px; height: 23px; display: block; }
+  .brand-word { font-size: 19px; letter-spacing: -.015em; color: var(--ink); line-height: 1; }
+  .brand-word b { font-weight: 700; }
+  .brand-word span { font-weight: 400; }
+
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(38px, 5.2vw, 58px);
+    line-height: 1.06;
+    letter-spacing: -.018em;
+    margin: 0 0 32px;
+    max-width: 17ch;
+    text-wrap: balance;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--rule-mid);
+    border-bottom: 1px solid var(--rule-mid);
+    margin-bottom: 54px;
+  }
+  .meta-row span {
+    padding: 13px 32px 13px 0;
+    margin-right: 32px;
+    font-size: 15px;
+    color: var(--ink-2);
+    border-right: 1px solid var(--rule);
+  }
+  .meta-row span:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+  .meta-row b {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  @media (max-width: 640px) { .meta-row span { border-right: 0; padding: 8px 0; margin-right: 0; flex: 1 0 50%; } }
+
+  /* ---------- layout ---------- */
+  .body-grid { display: grid; grid-template-columns: 1fr; gap: 44px; align-items: start; }
+  @media (min-width: 1060px) {
+    .body-grid { grid-template-columns: 202px minmax(0, 1fr); gap: 70px; }
+    .rail { position: sticky; top: 32px; }
+  }
+  .rail-title {
+    font-size: 11px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--rule-mid);
+  }
+  .rail a {
+    display: grid; grid-template-columns: 21px 1fr; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--rule);
+    color: var(--ink-2); text-decoration: none; font-size: 15px; line-height: 1.35;
+  }
+  .rail a span:first-child { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .rail a:hover { color: var(--ink); }
+  .rail a:hover span:first-child { color: var(--ink); }
+  .rail a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  main { min-width: 0; max-width: var(--measure); }
+
+  /* ---------- status chips ---------- */
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    white-space: nowrap; vertical-align: 1px;
+  }
+  .chip::before { content: ""; width: 6px; height: 6px; background: currentColor; }
+  .chip.live { color: var(--live); }
+  .chip.prog { color: var(--prog); }
+  .chip.road { color: var(--road); }
+
+  /* ---------- legend ---------- */
+  .legend { border-top: 1px solid var(--rule-mid); border-bottom: 1px solid var(--rule-mid); padding: 24px 0 26px; margin: 0 0 48px; }
+  .legend h2 { font-size: 11px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+  .legend-items { display: grid; gap: 10px; }
+  .legend-item { display: grid; grid-template-columns: 118px 1fr; gap: 18px; align-items: baseline; font-size: 16.5px; color: var(--ink-2); }
+  @media (max-width: 560px) { .legend-item { grid-template-columns: 1fr; gap: 2px; } }
+
+  /* ---------- key points ---------- */
+  .keypoints { display: grid; margin: 0 0 54px; border-top: 1px solid var(--rule); }
+  .keypoint { display: grid; grid-template-columns: 50px 1fr; padding: 24px 0; border-bottom: 1px solid var(--rule); }
+  .keypoint-n { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--muted); line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .keypoint h3 { font-family: var(--sans); font-size: 17.5px; font-weight: 700; margin: 0 0 6px; letter-spacing: -.005em; }
+  .keypoint p { margin: 0; font-size: 16.5px; color: var(--ink-2); }
+
+  /* ---------- sections ---------- */
+  section { scroll-margin-top: 24px; }
+  .sec-head {
+    display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: baseline;
+    margin-top: 66px; padding: 22px 0 24px; border-top: 2px solid var(--rule-dark);
+  }
+  .sec-num { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .sec-head h2 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: clamp(26px, 3.1vw, 34px); line-height: 1.14; letter-spacing: -.012em;
+    margin: 0; text-wrap: balance;
+  }
+
+  h3.q {
+    font-family: var(--serif); font-size: 22px; font-weight: 600; line-height: 1.3;
+    letter-spacing: -.008em; margin: 42px 0 12px; padding-top: 20px;
+    border-top: 1px solid var(--rule); text-wrap: balance;
+  }
+  h3.q .qn {
+    display: block; font-family: var(--sans); font-size: 11px; font-weight: 700;
+    letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  h4 { font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink); margin: 32px 0 11px; }
+
+  p { margin: 0 0 16px; }
+  main p { color: var(--ink-2); }
+  strong { color: var(--ink); font-weight: 700; }
+
+  ul, ol { margin: 0 0 20px; padding-left: 21px; color: var(--ink-2); }
+  li { margin-bottom: 9px; padding-left: 4px; }
+  li::marker { color: var(--rule-mid); }
+  ol li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ---------- tables ---------- */
+  .table-wrap { overflow-x: auto; margin: 8px 0 28px; border-top: 2px solid var(--rule-dark); border-bottom: 1px solid var(--rule-mid); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 16px; min-width: 480px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 13px 24px 13px 16px; vertical-align: top; }
+  th {
+    font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--muted); border-bottom: 1px solid var(--rule-mid); white-space: nowrap;
+  }
+  td { color: var(--ink-2); border-bottom: 1px solid var(--rule); line-height: 1.55; }
+  td:first-child { color: var(--ink); font-weight: 600; padding-right: 30px; }
+  tr:last-child td { border-bottom: 0; }
+  table.two col:first-child { width: 32%; }
+
+  /* ---------- callout ---------- */
+  .callout { background: var(--tint); border-left: 3px solid var(--rule-mid); padding: 18px 22px; margin: 0 0 28px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout .label {
+    display: block; font-size: 11px; font-weight: 700; letter-spacing: .13em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+
+  /* ---------- diagrams ---------- */
+  .diagram, .kdiagram {
+    background: var(--surface);
+    border: 1px solid var(--rule-mid);
+    border-radius: 3px;
+    padding: 26px 26px 28px;
+    margin: 8px 0 12px;
+    display: grid;
+    gap: 18px;
+  }
+  .band { display: grid; gap: 10px; }
+  .band-label { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .band-row { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); }
+  .node {
+    background: var(--tint);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 14px 16px;
+    font-size: 14.5px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .node b { display: block; color: var(--ink); font-size: 14.5px; font-weight: 700; margin-bottom: 5px; }
+  .node.wide { grid-column: 1 / -1; }
+  .node.accent { background: var(--ink); border-color: var(--ink); color: #E9EEF0; }
+  .node.accent b { color: #FFFFFF; }
+  :root[data-theme="dark"] .node.accent,
+  .flow { color: var(--muted); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .node.accent { color: #162127; } }
+  :root[data-theme="dark"] .node.accent { color: #162127; }
+  :root[data-theme="dark"] .node.accent b { color: #0E171C; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .node.accent b { color: #0E171C; } }
+  .flow { font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-align: center; }
+  .tenant-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); }
+  .tenant { background: var(--paper); border: 1px solid var(--rule); border-radius: 3px; padding: 14px 16px; font-size: 14px; color: var(--ink-2); }
+  .tenant b { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); margin-bottom: 7px; }
+  .tenant ul { margin: 0; padding-left: 16px; font-size: 14px; }
+  .tenant li { margin-bottom: 3px; padding-left: 0; }
+  .fig-note { font-size: 15px; color: var(--muted); margin: 0 0 32px; padding-top: 4px; }
+
+  .klayer { background: var(--tint); border: 1px solid var(--rule-mid); border-radius: 3px; padding: 18px 20px; }
+  .klayer b { display: block; font-size: 15.5px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+  .klayer p { margin: 0; font-size: 14.5px; color: var(--ink-2); }
+  .kwall { font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 2px 0; }
+
+  /* ---------- where we stand ---------- */
+  .standing { display: grid; gap: 32px; margin: 8px 0 22px; }
+  @media (min-width: 780px) { .standing { grid-template-columns: 1fr 1fr; gap: 44px; } }
+  .stand-col { border-top: 2px solid var(--rule-dark); padding-top: 20px; }
+  .stand-col h3 { font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 18px; }
+  .stand-live h3 { color: var(--live); }
+  .stand-prog h3 { color: var(--prog); }
+  .stand-col ul { margin: 0; padding: 0; list-style: none; display: grid; }
+  .stand-col li { margin: 0; padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 16px; line-height: 1.5; color: var(--ink-2); }
+  .stand-col li:last-child { border-bottom: 0; }
+  .stand-col li b { color: var(--ink); font-weight: 700; }
+
+  footer { margin-top: 64px; padding-top: 22px; border-top: 2px solid var(--rule-dark); font-size: 14.5px; color: var(--muted); }
+  footer p { color: var(--muted); margin: 0; }
+
+  @media print {
+    .rail { display: none; }
+    .shell { max-width: none; padding: 0; }
+    .body-grid { display: block; }
+    main { max-width: none; }
+    body { background: #fff; font-size: 10.5pt; }
+    .sec-head, .diagram, .kdiagram, table, .keypoint, .stand-col { break-inside: avoid; }
+    h3.q { break-after: avoid; }
+  }
+</style>
+<style>
+  .qa { border-top: 1px solid var(--rule); padding: 24px 0 6px; }
+  .qa:first-of-type { border-top: 2px solid var(--rule-dark); }
+  .qa .q {
+    font-family: var(--serif);
+    font-size: 19.5px;
+    font-weight: 600;
+    line-height: 1.34;
+    letter-spacing: -.008em;
+    color: var(--ink);
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+  .qa .q::before {
+    content: "Q";
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--muted);
+    vertical-align: 3px;
+    margin-right: 10px;
+  }
+  .qa > p:not(.q) { color: var(--ink-2); }
+  .qa .table-wrap { margin-top: 14px; }
+  .qa ul, .qa ol { margin-top: 2px; }
+  @media print { .qa { break-inside: avoid; } }
+</style>
+<style>
+  html { color-scheme: light dark; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="masthead">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 120 120" aria-hidden="true">
+        <defs>
+          <linearGradient id="ao-mark" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e5484d"/>
+            <stop offset="0.55" stop-color="#e8893a"/>
+            <stop offset="1" stop-color="#d9a441"/>
+          </linearGradient>
+        </defs>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M110 60 L85 103.3 L35 103.3 L10 60 L35 16.7 L85 16.7 Z M60 34 L83 85 L37 85 Z" fill="url(#ao-mark)"/>
+      </svg>
+      <span class="brand-word"><b>Alt</b><span>Ops</span></span>
+    </div>
+    <h1>Revised Answers and Proposal</h1>
+    <div class="meta-row">
+      <span><b>For</b>Randy, Promo Consulting</span>
+      <span><b>From</b>AltOps</span>
+      <span><b>Date</b>September 9, 2026</span>
+      <span><b>Covers</b>Your notes of 9/6 and our call this week</span>
+    </div>
+  </header>
+
+  <div class="body-grid">
+
+    <nav class="rail" aria-label="Sections">
+      <div class="rail-title">Contents</div>
+      <a href="#s0"><span>&#8214;</span><span>What changed</span></a>
+      <a href="#s1"><span>1</span><span>The shape of the partnership</span></a>
+      <a href="#s2"><span>2</span><span>The economics</span></a>
+      <a href="#s3"><span>3</span><span>Who owns what</span></a>
+      <a href="#s4"><span>4</span><span>How we work together</span></a>
+      <a href="#s5"><span>5</span><span>The platform</span></a>
+      <a href="#s6"><span>6</span><span>Security and compliance</span></a>
+      <a href="#s7"><span>7</span><span>About us</span></a>
+      <a href="#s8"><span>&#8214;</span><span>Next steps</span></a>
+    </nav>
+
+    <main>
+
+      <div class="legend">
+        <h2>How to read this</h2>
+        <div class="legend-items">
+          <div class="legend-item"><span class="chip road">Revised</span><span>Our position moved after the call. This replaces what the 9/6 document said.</span></div>
+          <div class="legend-item"><span class="chip live">Answered</span><span>Settled, and we are comfortable putting it in writing.</span></div>
+          <div class="legend-item"><span class="chip prog">For the call</span><span>Our position, plus the part we should still talk through together.</span></div>
+        </div>
+      </div>
+
+      <section id="s0">
+        <div class="sec-head"><span class="sec-num">&#8214;</span><h2>What changed since the last document</h2></div>
+        <p>The call moved four things. Everything else in the 9/6 document stands, and the parts that still matter are restated below so this reads on its own.</p>
+        <div class="keypoints">
+          <div class="keypoint">
+            <div class="keypoint-n">1</div>
+            <div>
+              <h3>The scope is the whole back office, not only finance.</h3>
+              <p>Bookkeeping, CSR, stores, order entry, quoting and whatever else PC bundles for a Syncore distributor. The 9/6 proposal was priced for financial automation alone.</p>
+            </div>
+          </div>
+          <div class="keypoint">
+            <div class="keypoint-n">2</div>
+            <div>
+              <h3>Fully white-labelled for PC.</h3>
+              <p>No AltOps logo, no "powered by". The product PC's clients sign in to is PC's, end to end. We drop our request for co-branding inside the product.</p>
+            </div>
+          </div>
+          <div class="keypoint">
+            <div class="keypoint-n">3</div>
+            <div>
+              <h3>Territory is by route, not by category.</h3>
+              <p>Every Facilis distributor that comes through PC is PC's, for everything. Distributors that come to AltOps directly stay with AltOps. We are not asking for, and not offering, a category-wide exclusive.</p>
+            </div>
+          </div>
+          <div class="keypoint">
+            <div class="keypoint-n">4</div>
+            <div>
+              <h3>30% revenue share with a $2,000 floor per client, and no flat platform fee.</h3>
+              <p>AltOps takes whichever is greater of 30% of what a client pays PC or $2,000 per active client per month. PC keeps the rest and sets the price.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="s1">
+        <div class="sec-head"><span class="sec-num">01</span><h2>The shape of the partnership</h2></div>
+
+        <div class="qa">
+          <p class="q">You asked: carve out the Facilis membership for PC. Anything a Syncore distributor wants automated, not only finance, comes through Promo Consulting, so PC is never competing against AltOps or a third party in its own space.</p>
+          <p><span class="chip road">Revised</span> We understand the ask, and we understand why: if your clients see AltOps inside the product and the next distributor goes to us directly, your marketing has become our marketing. We have a different answer to that problem than a category exclusive, and we think it gets you the same protection.</p>
+          <p><strong>Territory follows the route to the client, not the software they run.</strong></p>
+          <ul>
+            <li><strong>Through PC, it is PC's.</strong> Any Facilis distributor that PC introduces, sells to or onboards is PC's client for the full scope: bookkeeping, CSR, stores, order entry, quoting, sales support, all of it. AltOps will not sell to that client directly, or through another partner, during the term and for a period after it.</li>
+            <li><strong>Direct to AltOps, it is AltOps'.</strong> A Facilis distributor that reaches us on its own, or through one of our other channels, is ours to serve at our own pricing. We will not route them through PC, and we will not ask PC to give us the ones you find.</li>
+            <li><strong>Existing AltOps clients stay where they are.</strong> The handful we already run production work for, including the ones you know, are grandfathered as you said on the call. If one of them later asks to buy the PC suite, that is their decision and yours.</li>
+          </ul>
+          <p>The reason this works without confusing the market is the next answer: nobody using PC's product will see AltOps in it, so the two offerings do not look related from the outside. PC sells a Promo Consulting ecosystem for Syncore distributors. AltOps sells AltOps. A distributor who hears about both is hearing about two different companies, and the one with the twenty years of Syncore relationships is you.</p>
+          <p>We are not able to agree that every Syncore distributor in the industry must come through PC, because Facilis is also where our own go-to-market has been pointed and we have relationships there that predate this conversation. We would rather say that plainly than sign something we would spend the term working around.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: white-label versus co-branded. On the call you said "PC AI, powered by AltOps" was tolerable only with a protected market, and you would rather not have AltOps visible at all.</p>
+          <p><span class="chip road">Revised</span> Fully white-labelled. Since we are not asking you for a category exclusive, we no longer need visibility in your product to justify one.</p>
+          <ul>
+            <li>Promo Consulting's name and logo only. No AltOps mark, no "powered by", no AltOps in the footer.</li>
+            <li>Your domain for sign-in, your name on system emails and notifications, your name in the audit trail your clients see.</li>
+            <li>Support goes out under PC. Where our engineers are on a client call, they are there as your technical team.</li>
+            <li>The partner admin tier is built white-labelled from the start, not re-skinned afterwards.</li>
+          </ul>
+          <p>What we keep is the reference value between the two of us: we can name Promo Consulting as a partner in our own conversations, with your approval on wording, and you can name AltOps as your platform where a client's due diligence requires it.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You said: agents are becoming a commodity. What distributors need is a new way of running a department, a bookkeeping bundle or a CSR bundle, not one-off agents based on whatever pain point a staff member raises.</p>
+          <p><span class="chip live">Answered</span> Agreed, and we will build to that. Role bundles rather than agent counts, a version one that gets a department running and a version two that extends it, and PC deciding what a client needs rather than asking. The platform does not care how many agents sit inside a bundle, so the packaging is entirely yours.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: should AltOps just license through Facilis directly instead?</p>
+          <p><span class="chip live">Answered</span> We heard your view on the call and it matched what we had seen: the institutional knowledge left with the people, three of whom are at PC, and an affiliate listing does not carry trust when the subject is a distributor's books. That is why we would rather build the Syncore back office with PC than through a program listing. It does not change the territory answer above, but it is why we are here.</p>
+        </div>
+      </section>
+
+      <section id="s2">
+        <div class="sec-head"><span class="sec-num">02</span><h2>The economics</h2></div>
+
+        <div class="qa">
+          <p class="q">You asked: the $3,000 platform fee is fine, but it should count toward the royalty rather than sit on top of it. And the 20% should decline with success: 20% on the first $50,000 of monthly revenue, 15% on the next $50,000, 10% above $100,000.</p>
+          <p><span class="chip road">Revised</span> We have reworked the structure, because the scope moved. The 9/6 numbers assumed financial automation with PC supplying the knowledge and AltOps supplying the engine. The scope is now every workflow in the client, including the order entry, quoting and CSR work we sell directly today at full price. Our proposal for that scope is below.</p>
+          <div class="table-wrap">
+            <table class="two"><colgroup><col><col></colgroup>
+              <thead><tr><th>Component</th><th>Terms</th></tr></thead>
+              <tbody>
+                <tr><td>Revenue share</td><td>30% of what each client pays PC</td></tr>
+                <tr><td>Floor</td><td>$2,000 per active client per month. AltOps receives whichever is greater, 30% or the floor</td></tr>
+                <tr><td>Platform fee</td><td>None. The per-client floor replaces the flat $3,000</td></tr>
+                <tr><td>Pricing</td><td>PC sets it, bundles it and bills the client. We have no say in the number</td></tr>
+                <tr><td>Billing</td><td>PC bills the client. We invoice PC monthly on active clients</td></tr>
+                <tr><td>Duration</td><td>Only while a client is active. No tail, no minimum term per client</td></tr>
+                <tr><td>Included</td><td>Model and infrastructure cost, builds, testing, repairs when vendor systems change, the partner admin tier, the methodology library, compliance and insurance</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h4>What the floor does</h4>
+          <p>Every client costs us real money whether they pay PC $2,000 or $10,000: their own cloud machine, model usage on every run, a verification cycle on every change, and an engineer on call when Syncore changes a screen. The floor makes each client sustainable on its own. It stops binding once a client pays PC more than about $6,700 a month, and above that the share is a flat 30%.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Client pays PC / month</th><th>30%</th><th>To AltOps</th><th>PC keeps</th><th>AltOps share</th></tr></thead>
+              <tbody>
+                <tr><td>$4,000</td><td>$1,200</td><td>$2,000</td><td>$2,000</td><td>50%</td></tr>
+                <tr><td>$6,000</td><td>$1,800</td><td>$2,000</td><td>$4,000</td><td>33%</td></tr>
+                <tr><td>$8,000</td><td>$2,400</td><td>$2,400</td><td>$5,600</td><td>30%</td></tr>
+                <tr><td>$10,000</td><td>$3,000</td><td>$3,000</td><td>$7,000</td><td>30%</td></tr>
+                <tr><td>$15,000</td><td>$4,500</td><td>$4,500</td><td>$10,500</td><td>30%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Read against your own targets: a bookkeeping bundle plus a CSR bundle at the prices you floated lands a client around $4,000 to $6,000 a month, where PC keeps $2,000 to $4,000 per client. At thirty to fifty clients in year one that is a meaningful business for both of us, and the share improves for PC as bundles are added to each client, because the floor falls away.</p>
+          <h4>The declining tiers</h4>
+          <p><span class="chip prog">For the call</span> We would rather not pre-commit to 15% and 10% tiers before either of us has seen the cost of serving a client at scale. What we will commit to is the review you suggested: at three months and at six months we open our cost per client to you, and if the platform is cheaper to run than the numbers assume, the share moves. Token prices are falling and we expect that to show up in the review.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: what is AI worth to a distributor, and how should PC price the bundles? You do not want to be three times our public price, and you do not want us setting a market perception that undercuts you.</p>
+          <p><span class="chip live">Answered</span> Here is what we know and what we will do about it.</p>
+          <ul>
+            <li><strong>Our direct pricing today.</strong> An entry plan at $1,500 a month covering up to five agents, and $3,000 a month for clients with heavier or more complex workflows. That is the price of the software with our own onboarding and support, sold to distributors who come to us.</li>
+            <li><strong>What PC's bundle carries that ours does not.</strong> The department design, the best-practice guardrails, the benchmark against other distributors, the audit and reconciliation work around it, and the person who tells the owner what they need. A bookkeeper costs $24,000 a year offshore and $75,000 onshore, and a bundle that replaces most of that work is priced against the role, not against our software.</li>
+            <li><strong>No surprises on price.</strong> We will share our price list with you and tell you before any change to it, so PC always prices with full knowledge of what a distributor could get from us directly.</li>
+          </ul>
+          <p>The concrete next step, which we agreed on the call: you record a walkthrough of what Syncore Bookkeeping version one should do, we replicate it on the platform in about a day, and within a week we give you the exact cost of running it. Then you price the bundle with your margin on top, and we both know the number is real.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: how do we stop runaway usage disrupting the pricing model, and explain scale-to-zero in plain English.</p>
+          <p><span class="chip live">Answered</span> Unchanged from 9/6, and worth keeping in view because it is what makes the floor work. Model cost is ours, not PC's and not the client's, so runaway usage is our margin at risk. We meter per client and per run and can cap any client that behaves unusually. The first runs of a new workflow are reasoned by the model and cost real money; once the path is recorded, replay costs a fraction of that. Scale-to-zero switches a client's machine off when nobody is working and back on when a task arrives, with logins intact, so infrastructure cost tracks usage rather than client count.</p>
+        </div>
+      </section>
+
+      <section id="s3">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Who owns what</h2></div>
+
+        <div class="qa">
+          <p class="q">You asked: we agree on who owns what. Can it be defined explicitly in the agreement, including the breakup process? And what did you mean by pressure-testing the IP line?</p>
+          <p><span class="chip live">Answered</span> Yes, and nothing more is needed than plain English in the contract. The line, as we said it on the call and as you agreed:</p>
+          <div class="table-wrap">
+            <table class="two"><colgroup><col><col></colgroup>
+              <thead><tr><th>PC owns</th><th>AltOps owns</th></tr></thead>
+              <tbody>
+                <tr><td>The knowledge: your rules, benchmarks, best practices, SOPs, exceptions, calculations and frameworks, in your words</td><td>The technology: agent runtime, recorder, replay engine, orchestration, partner admin tier, infrastructure</td></tr>
+                <tr><td>The workflow specifications for your processes, and the methodology library built from them</td><td>Anything that makes the agent, the recorder or the platform itself better, including improvements that arise from this work</td></tr>
+                <tr><td>Your brand, your client relationships, your contracts and your pricing</td><td>The security and compliance layer</td></tr>
+                <tr><td>Your clients' data, unconditionally</td><td>Nothing of PC's knowledge, during the term or after it</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>On exit, PC exports the methodology, the rules with their reasoning, the workflow specifications and the execution history, and we delete our copy with written confirmation. No future AltOps service will use what we learned from PC's knowledge. You said on the call that you do not want to own the technology, and we do not want to own your knowledge, so the line is clean.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: what development is needed to make client knowledge, not data, available to PC so you can improve processes and agents with the client's permission? You want to analyse SOPs against your benchmarks automatically, protect owners from staff redesigning processes badly, and escalate to the owner when a requested change makes no sense.</p>
+          <p><span class="chip live">Answered</span> The core of it exists today. When we build an automation from a recording, the platform generates a structured SOP of how that client does the work: the steps, the rules, the exceptions, with none of the underlying data. That SOP is available to the client and, with their consent, to PC.</p>
+          <p>What we would build for PC on top of it, as part of the partner tier:</p>
+          <ul>
+            <li><strong>A methodology library</strong> holding PC's benchmarks and best-practice SOPs as the starting point, owned and edited by PC.</li>
+            <li><strong>Change review.</strong> When a client requests a process change, the request is compared against PC's benchmark and against how other PC clients do the same work, and PC gets a recommendation with the reasoning. PC decides; nothing is automatic.</li>
+            <li><strong>Owner escalation.</strong> Where PC recommends against a change, the client acknowledges the recommendation with a click and the owner is notified before it goes ahead. That is the layer of protection you described, and it is a strong thing to sell.</li>
+            <li><strong>Case studies.</strong> Recurring requests and PC's standard replies accumulate in the library, so the answer to "we want to change invoicing like this" is drafted from what PC has already decided.</li>
+          </ul>
+          <p>Consent lives in PC's client agreement, as you said the Facilis community is used to. Client-identifying content is stripped when an SOP is promoted into the library, and no client's data ever moves. We are happy to help design the analysis sequence. The benchmarks and the outputs are PC's knowledge.</p>
+        </div>
+      </section>
+
+      <section id="s4">
+        <div class="sec-head"><span class="sec-num">04</span><h2>How we work together</h2></div>
+
+        <div class="qa">
+          <p class="q">You said: PC wants to own training and onboarding. AltOps is the support side. PC designs the intake, and after the first clients PC's team should be able to run the recording sessions without us.</p>
+          <p><span class="chip live">Answered</span> That is the right split, and it matches how we would want it.</p>
+          <div class="table-wrap">
+            <table class="two"><colgroup><col><col></colgroup>
+              <thead><tr><th>Promo Consulting</th><th>AltOps</th></tr></thead>
+              <tbody>
+                <tr><td>Sells, prices and bundles. Picks the beta clients. Owns the relationship</td><td>Builds the partner admin tier and the methodology library</td></tr>
+                <tr><td>Designs the intake form and runs client onboarding and training</td><td>Joins the first recording sessions to train PC's team, then steps back</td></tr>
+                <tr><td>Records the client's workflow and sends us the recording</td><td>Turns the recording into a working agent, runs it against past data, fixes integrity issues, verifies output. Two to three days per client</td></tr>
+                <tr><td>Reviews and signs off financial output through your certified reviewer</td><td>Handles changes, repairs when vendor systems change, and technical support under PC's name</td></tr>
+                <tr><td>Decides what a client needs next from the bundle roadmap</td><td>Carries the platform, the model cost, the security programme and the infrastructure</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Onboarding a client is a one-hour screen-share where the client walks through the work, recorded, plus a few clarifying questions. For the first clients someone from AltOps joins so your team sees what an agent needs to know. After that PC records and sends the file, and our engineers build from it. Once a client is live, day to day use is either a schedule or a run button. Your clients will not need much from anyone after the first week.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: how many clients a week can we onboard? One person on PC's staff should manage one or two a week, and you would be disappointed with fewer than thirty to fifty clients in year one and a hundred in two.</p>
+          <p><span class="chip live">Answered</span> Two a week to start, as we discussed. After the first ten we hold for two weeks to confirm every one of them is running clean, then we open it up. That pace is a choice, not a constraint: we would rather the first ten are references than that the twentieth is a repair.</p>
+          <p>Onboarding is not what limits scale. Ongoing change requests are, and they arrive unevenly, so we scale contract engineers with demand. Our next funding round, which a fast proof of concept with PC brings closer, adds full-time engineers and moves the sustainable pace to around five clients a week. Your targets are achievable on that curve.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You said: your new lead starts in about two weeks. Controller at a Facilis distributor, ran operations, led a Syncore to NetSuite transition, tech-savvy and process-minded. She will be client-facing and will own the review process.</p>
+          <p><span class="chip live">Answered</span> We will train her directly in her first two weeks with us: how the recorder works, what an agent needs to know before it is built, and how verification runs. From there she owns sign-off on PC agents and our review stops being a dependency. We would also like her in the room when the bookkeeping bundle is specified, not only when it is checked.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: does every client change have to come back to AltOps, and how long does it take? And we need a sandbox.</p>
+          <p><span class="chip live">Answered</span> Changes come to us, and they are small. A typical change, such as a new flag in a reconciliation sheet, is a couple of hours of work. What takes the time is our testing: we run the change against past data and previous deployments before it goes live, which is a day or two. That discipline is why a client's books do not quietly drift.</p>
+          <p>A sandbox shortens that cycle materially. The Syncore training sandbox would be fine for us, and a dedicated one where we can set parameters would be better. A QuickBooks Online sandbox alongside it lets us build the automated verification harness we described on 9/6, so a person only reviews what the checks flag.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: QuickBooks Online API, PromoStandards endpoints, and other integrations.</p>
+          <p><span class="chip live">Answered</span></p>
+          <ul>
+            <li><strong>QuickBooks Online.</strong> API integration starts this week. Where an API exists we use it, even where it carries a charge, because it is more reliable than driving a screen.</li>
+            <li><strong>PromoStandards.</strong> Integration is underway. You asked which of the endpoints we cover; Madhavam owns that side and will send you the list by email separately.</li>
+            <li><strong>Sage.</strong> Full integration is scheduled this month.</li>
+            <li><strong>Syncore.</strong> Public APIs where they exist, the application's own internal calls where they do not, and the browser for everything else. That combination is what lets us do the things an API-only tool cannot, such as artwork or the work that lives in spreadsheets.</li>
+          </ul>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: timeframe.</p>
+          <p><span class="chip live">Answered</span> Roughly a month to the first client, and we will not be the thing holding it up. Two weeks or so for the contract, two to three weeks for the partner admin tier in parallel, your lead starting in the same window, then the first beta clients. Five beta clients with proof, testimonials and references within a month or two of go-live is the target we heard, and it is the right one.</p>
+        </div>
+      </section>
+
+      <section id="s5">
+        <div class="sec-head"><span class="sec-num">05</span><h2>The platform</h2></div>
+
+        <div class="qa">
+          <p class="q">You asked: logins. PC does not want human intervention on every run, and you want a separate login per agent in the client's system so the audit trail is clean.</p>
+          <p><span class="chip live">Answered</span> The client logs in to Syncore, QuickBooks, their bank and the rest inside the AltOps browser themselves. Credentials never reach us and we do not see them. Sessions persist, so nobody re-authenticates per run; about once every thirty days one person logs back in, and that is the only touch.</p>
+          <p>For the audit trail we recommend each client creates a dedicated login for the agent, the same way your staff each have their own login in a client's system. One agent login is enough: every agent running under it is identified individually in the platform's own record, so you can show exactly which agent did what, and the client's staff cannot say Promo Consulting must have done it.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: if the system goes down, the client cannot simply go back to doing it manually because they no longer have the staff. What recovery commitment can we put in writing?</p>
+          <p><span class="chip prog">For the call</span> Two layers, and then a number we should agree together.</p>
+          <ul>
+            <li><strong>Model failover is built in.</strong> Anthropic is the primary model. If it errors, runs fall back to OpenAI or Google automatically. All three are under commercial terms that prohibit training on your clients' data. A single vendor's outage does not stop a run.</li>
+            <li><strong>Work is queued, not lost.</strong> An outage delays; it does not destroy. When service resumes the queue drains at several times human speed.</li>
+          </ul>
+          <p>On the call you drew the useful distinction: forty-eight hours is survivable for month-end finance, but purchase orders and CSR work cannot wait that long. We would write recovery targets into the agreement by workflow type rather than one blanket number, and we would rather set those with you than pick them here.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: Trillium is calling on the same clients. What is the difference?</p>
+          <p><span class="chip live">Answered</span> Without speaking for them, the difference we see is in approach.</p>
+          <ul>
+            <li><strong>API-first versus API plus browser.</strong> An API-only tool can do what the vendor exposed. Our agents use the API where one exists and drive the screen where it does not, so the work that lives in spreadsheets, PowerPoints, artwork and email is inside scope rather than outside it. That is the moat, and it is why the Syncore work that has no endpoint is possible.</li>
+            <li><strong>Reasoning that becomes replay.</strong> The first few runs of a workflow are reasoned by the model and cost real money. The platform records the path and later runs replay it directly, so a run that cost $10 the first time costs cents by the fourth. Cheaper and more consistent, which matters for books.</li>
+            <li><strong>Both are funded.</strong> They by Y Combinator, we by Mucker Capital. Neither of us is going away in the next twelve months, and we would rather you compare the platforms than the balance sheets.</li>
+          </ul>
+          <p>A recent example: a distributor on shopVOX with overseas factory sheets moved from Trillium to us because their quoting depended on reading product images and matching them to codes, which is browser work. We can arrange a reference if useful.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: does an agent behave like an employee, on a schedule, reporting to a human, with its own audit trail? And can it work faster than human pace?</p>
+          <p><span class="chip live">Answered</span> Unchanged from 9/6. An agent has its own identity, its own isolated machine and its own login, runs on a schedule, reports to a named person and escalates what is not its to decide. Volume is a matter of how many run in parallel, not how fast one types, and non-urgent work runs overnight.</p>
+        </div>
+      </section>
+
+      <section id="s6">
+        <div class="sec-head"><span class="sec-num">06</span><h2>Security and compliance</h2></div>
+
+        <div class="qa">
+          <p class="q">You asked: a real range for SOC 2, and whether Type I lets us say "SOC 2 compliant".</p>
+          <p><span class="chip live">Answered</span> Type I in roughly six to eight weeks, on Thoropass's current expectation for us. Type II within a month to six weeks after that, which puts full SOC 2 Type II before the end of the year. We are a small codebase with few people and devices to audit, which is why the timeline is short compared with a larger vendor's.</p>
+          <p>On wording: once Type I is issued we will say SOC 2 Type I, and the badge says so. We will not describe Type I as Type II, and we would ask PC to hold the same line with clients. The moment Thoropass fixes the dates we send them to you directly.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: insurance. PC carries a $5 million liability policy and a separate cyber policy because you are inside your clients' books. What does AltOps carry, what limit is worthwhile, and can PC be a named insured on our policy?</p>
+          <p><span class="chip prog">For the call</span> We owe you the specifics and will bring them: our current cover, and a proposed limit sized against what your largest prospects' contracts require. In principle, yes to PC as a named insured on our cyber and technology errors and omissions cover, subject to what the policy allows, and we will confirm that with our broker. PC carrying its own cover as well is the right belt and braces. This should be drafted alongside tight end-client contract language.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: data versus knowledge versus training, in practical terms.</p>
+          <p><span class="chip live">Answered</span> Unchanged. Client data is the working context of a single run and is gone when the run ends; it is not retained to train anything, by us or by the model providers, and it never reaches another client. Knowledge is a written rule stored as a record you can read, edit and export. Model training means changing a model's weights, which we do not do and our providers do not do with commercial API traffic. Knowledge only moves if a person decides to move it, under the consent described in section 3.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: US-only data residency, deletion on exit with written confirmation, and a security document for prospects and RFPs.</p>
+          <p><span class="chip live">Answered</span> US residency becomes a contractual commitment, since it is already true. Deletion is a logged operation with written confirmation, and an audited control once SOC 2 is in place. We will produce a buyer-facing security overview that PC can hand to prospects under PC's name, and we will answer client questionnaires on your behalf during an RFP.</p>
+        </div>
+      </section>
+
+      <section id="s7">
+        <div class="sec-head"><span class="sec-num">07</span><h2>About us</h2></div>
+
+        <div class="qa">
+          <p class="q">You asked: how big is the team, what has been raised and when, burn rate and runway, last month's revenue, other businesses, and the next round.</p>
+          <p><span class="chip live">Answered</span> You asked directly, we answered directly on the call, and here it is in writing.</p>
+          <div class="table-wrap">
+            <table class="two"><colgroup><col><col></colgroup>
+              <tbody>
+                <tr><td>Team</td><td>Two founders full time, one founding engineer who has been with us from the start, and contract engineers that flex with demand. The founding engineer becomes PC's named technical lead once your team is fluent on the platform</td></tr>
+                <tr><td>Company</td><td>AltOps is the only product of Prometheus Innovations. Neither founder is active in any other business</td></tr>
+                <tr><td>Funding</td><td>A $55,000 angel cheque in November 2025 from a Y Combinator founder with a prior exit, then roughly $350,000 from Mucker Capital in January 2026. About $400,000 raised in total</td></tr>
+                <tr><td>Burn</td><td>Around $7,000 to $10,000 a month, spent on the people we pay. The founders live on the proceeds of a previous company they built and sold, and are not drawing salaries</td></tr>
+                <tr><td>Runway</td><td>Years at current burn, before any new revenue</td></tr>
+                <tr><td>Revenue</td><td>About $15,000 in monthly recurring revenue as of August, from a small number of clients on real financial processes they act on</td></tr>
+                <tr><td>Next round</td><td>A $4 million to $5 million raise planned for December or January, and interest from Y Combinator's leadership in the next batch. A fast proof of concept with PC is the kind of evidence that round is built on</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>If financial soundness is a gating item we will share supporting detail under NDA. We would rather be judged on being scrappy and alive than on a headcount.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: who else are we talking to?</p>
+          <p><span class="chip live">Answered</span> Told to you on the call, and worth having in writing so nothing surprises you later. We have a partnership with PromoPilot, where AltOps is the technology behind distributors who come through that community. We have active conversations elsewhere in the industry, including on the supplier side, which is not PC's market. We will be saying no to some partnerships in the coming month so we are not spread thin, and PC is the one we want in the Syncore back office. The territory rule in section 1 governs all of it: a client that comes through PC is PC's, whatever other channel they might also have heard of us through.</p>
+        </div>
+
+        <div class="qa">
+          <p class="q">You asked: at what point does this become an ERP? And could AI do the audits for the long tail of distributors that PC does not serve today?</p>
+          <p><span class="chip live">Answered</span> Both are further out, and both are conversations we would like to have with you once the first fifty clients are running. Walk before we run, as you said. The audit tool in particular, a low-cost AI-assisted audit for the thousands of distributors below PC's current sweet spot, is something we would build with PC's knowledge rather than around it.</p>
+        </div>
+      </section>
+
+      <section id="s8">
+        <div class="sec-head"><span class="sec-num">&#8214;</span><h2>Next steps</h2></div>
+        <p>What each of us does now, and the few items that still need a conversation.</p>
+        <div class="standing">
+          <div class="stand-col stand-live">
+            <h3>AltOps will</h3>
+            <ul>
+              <li><b>Replicate Bookkeeping version one</b> from your recorded walkthrough and return the exact running cost within a week of receiving it.</li>
+              <li><b>Send the PromoStandards endpoint list</b> by email.</li>
+              <li><b>Bring insurance specifics</b>: current cover and a proposed limit, with PC named where the policy allows.</li>
+              <li><b>Send SOC 2 dates</b> as soon as Thoropass fixes them.</li>
+              <li><b>Start the partner admin tier</b> and the methodology library, white-labelled, on signature.</li>
+              <li><b>Draft the security overview</b> for prospects under PC's name.</li>
+            </ul>
+          </div>
+          <div class="stand-col stand-prog">
+            <h3>We would ask PC to</h3>
+            <ul>
+              <li><b>Record the Bookkeeping version one walkthrough</b>, describing the process and its exceptions, without client data.</li>
+              <li><b>Request sandbox access</b> to Syncore and QuickBooks Online.</li>
+              <li><b>Draft the intake form</b> and the client consent language for knowledge sharing.</li>
+              <li><b>Pick the five beta clients</b>: engaged, decent bookkeepers, quick to prove.</li>
+              <li><b>Bring what your largest prospects require</b> on insurance and contract terms.</li>
+            </ul>
+          </div>
+        </div>
+        <h4>Still needs the call</h4>
+        <ul>
+          <li><strong>The economics</strong>, and whether 30% with a $2,000 floor works against the bundle prices you have in mind once the version-one cost is known.</li>
+          <li><strong>Territory wording</strong>: how "comes through PC" is defined in the contract so neither of us is guessing later.</li>
+          <li><strong>Recovery targets</strong> by workflow type, and what goes in writing.</li>
+          <li><strong>Insurance limits</strong>, once we have brought our numbers and you have brought your prospects' requirements.</li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>AltOps &middot; Revised answers and proposal for Promo Consulting, September 9, 2026. Supersedes the economics and branding positions in the September 6 document. Everything else there still stands.</p>
+      </footer>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
